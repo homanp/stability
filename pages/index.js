@@ -30,7 +30,7 @@ function Index() {
 
 	const handleCopyRegenration = async () => {
 		const completion = await ky
-			.post("/api/openai", { json: { prompt } })
+			.post("/api/openai", { json: { prompt: `${BRANDS[brand].name} ${prompt}` } })
 			.json();
 
 		setTagline(completion.choices[0]?.text);
